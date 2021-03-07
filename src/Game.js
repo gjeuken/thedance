@@ -14,18 +14,16 @@ function DrawCard(G, ctx) {
 }
 
 function PlayCard(G, ctx, card, pile_id) {
-    // TODO Check whether the card exist in hand or not. If not, invalid move.
+    const card_idx = G.hand[ctx.currentPlayer].indexOf(card)
+
+    if (card_idx === -1) { return INVALID_MOVE; } // Check if the player has the card
+
     if (pile_id === 0 || pile_id === 1) { // If ascending pile
-        if (card < G.piles[pile_id] && G.piles[pile_id]-card !== 10) {
-            return INVALID_MOVE;
-        }
+        if (card < G.piles[pile_id] && G.piles[pile_id]-card !== 10) { return INVALID_MOVE; }
     } else { // If descending pile
-        if (card > G.piles[pile_id] && card-G.piles[pile_id] !== 10) {
-            return INVALID_MOVE;
-        }
+        if (card > G.piles[pile_id] && card-G.piles[pile_id] !== 10) { return INVALID_MOVE; }
     }
     G.piles[pile_id] = card;
-    const card_idx = G.hand[ctx.currentPlayer].indexOf(card)
     G.hand[ctx.currentPlayer].splice(card_idx, 1)
 }
 
@@ -35,12 +33,33 @@ function NumberOfCards(n_players) {
 	else { return 6 }
 }
 
+function UpdateScore(G, ctx) {  // Not using anywhere yet. Not tested.
+    var score = G.length
+    var  n;
+    for (n=0; n < ctx.numPlayers; n++) {
+        score += G.hand[n].length
+    }
+    G.score = score
+}
+
 export const TheDance = {
 	setup: ctx => ({
-		piles: [1,1,100,100], //Array(4).fill([1, 1, 100, 100]),
+		piles: [1, 1, 100, 100],
 		deck: CreateDeck(2, 99),
 		hand_size: NumberOfCards(ctx.numPlayers),
 		hand: Array(ctx.numPlayers).fill([]),
+		score: 98,
 	}),
-	moves: {DrawCard, PlayCard},
+
+	phases: {
+	    main_phase: {
+	        moves: {DrawCard, PlayCard},
+	        endIf: G => (G.deck.length === 0),
+	        next: 'end_phase',
+	        start: true,
+	    },
+	    end_phase: {
+	        moves: {PlayCard},
+	    },
+	}
 }
