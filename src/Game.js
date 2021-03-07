@@ -51,7 +51,7 @@ function PlayCard(G, ctx, card, pile_id) {
     if (G.hand[ctx.currentPlayer].length === 0) { EndTurn(G, ctx); }
 }
 
-function UpdateScore(G, ctx) {  // Not using anywhere yet. Not tested.
+function UpdateScore(G, ctx) {
     var score = G.deck.length
     var  n;
     for (n=0; n < ctx.numPlayers; n++) {
@@ -72,7 +72,10 @@ export const TheDance = {
 		deck: deck,
 		hand_size: hand_size,
 		hand: hand,
-		score: 98,})
+		score: 98,
+		minPlayers: 1,
+		maxPlayers: 5,
+		disableUndo: true,})
 	},
 
 	phases: {
