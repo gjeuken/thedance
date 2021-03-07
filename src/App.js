@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { TheDance } from './Game';
+import { Client } from 'boardgame.io/react';
+import { Local } from 'boardgame.io/multiplayer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const TheDanceClient = Client({
+  game: TheDance,
+  //board: TheDanceBoard,
+  multiplayer: Local(),
+});
+
+const App = Client({ game: TheDance });
+/*
+const App = () => (
+  <div>
+    <TheDanceClient playerID="0" />
+    <TheDanceClient playerID="1" />
+  </div>
+);
+*/
 
 export default App;
