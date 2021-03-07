@@ -12,6 +12,21 @@ function NumberOfCards(n_players) {
 	else { return 6 }
 }
 
+function EndTurn(G, ctx) {
+    if (ctx.phase === "start_phase") {
+        if (ctx.numMoves === 1) { return INVALID_MOVE; }
+    } else if (ctx.phase === "main_phase") {
+        if (ctx.numMoves < 2) { return INVALID_MOVE; }
+    } else {
+        if (ctx.numMoves === 0 && G.hand[ctx.currentPlayer].length !== 0)  { return INVALID_MOVE; }
+    }
+
+    DrawCard(G, ctx);
+
+    if (ctx.phase === "start_phase" && ctx.numMoves >= 2) { ctx.events.endPhase(); }
+    else { ctx.events.endTurn(); }
+}
+
 function DrawCard(G, ctx) {
     while (G.hand[ctx.currentPlayer].length < G.hand_size && G.deck.length > 0) {
         const card = G.deck.pop();
@@ -39,7 +54,7 @@ function UpdateScore(G, ctx) {  // Not using anywhere yet. Not tested.
     for (n=0; n < ctx.numPlayers; n++) {
         score += G.hand[n].length
     }
-    G.score = score
+    return score
 }
 
 export const TheDance = {
@@ -58,14 +73,18 @@ export const TheDance = {
 	},
 
 	phases: {
-	    main_phase: {
-	        moves: {DrawCard, PlayCard},
-	        endIf: G => (G.deck.length === 0),
-	        next: 'end_phase',
+	    start_phase: {
+	        moves: {PlayCard, EndTurn},
+	        next: 'main_phase',
 	        start: true,
 	    },
+	    main_phase: {
+	        moves: {PlayCard, EndTurn},
+	        endIf: G => (G.deck.length === 0),
+	        next: 'end_phase',
+	    },
 	    end_phase: {
-	        moves: {PlayCard},
+	        moves: {PlayCard, EndTurn},
 	    },
 	}
 }

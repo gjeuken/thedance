@@ -3,11 +3,12 @@ import { TheDance } from './Game';
 import { Client } from 'boardgame.io/react';
 import { Local } from 'boardgame.io/multiplayer';
 
+/*
 const TheDanceClient = Client({
   game: TheDance,
   //board: TheDanceBoard,
   multiplayer: Local(),
-});
+});*/
 
 const App = Client({ game: TheDance });
 /*
