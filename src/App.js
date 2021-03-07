@@ -1,5 +1,6 @@
 import React from 'react';
 import { TheDance } from './Game';
+import { TheDanceBoard } from './Board';
 import { Client } from 'boardgame.io/react';
 import { Local } from 'boardgame.io/multiplayer';
 
@@ -10,7 +11,10 @@ const TheDanceClient = Client({
   multiplayer: Local(),
 });*/
 
-const App = Client({ game: TheDance });
+const App = Client({ 
+	game: TheDance,
+	board: TheDanceBoard,
+});
 /*
 const App = () => (
   <div>
