@@ -31,6 +31,7 @@ function DrawCard(G, ctx) {
     while (G.hand[ctx.currentPlayer].length < G.hand_size && G.deck.length > 0) {
         const card = G.deck.pop();
         G.hand[ctx.currentPlayer].push(card);
+        G.hand[ctx.currentPlayer].sort((a, b) => a - b);  // sorts the array in ascending order.
     }
 }
 
@@ -67,6 +68,7 @@ export const TheDance = {
 		let hand = Array(ctx.numPlayers).fill([]);
 		for (let i = 0; i < ctx.numPlayers; i++) {
 			hand[i] = deck.splice(0, hand_size);
+			hand[i].sort((a, b) => a - b);  // sorts the array in ascending order.
 	}
 		return ({ piles: [1, 1, 100, 100],
 		deck: deck,
