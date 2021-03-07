@@ -46,15 +46,18 @@ function PlayCard(G, ctx, card, pile_id) {
     }
     G.piles[pile_id] = card;
     G.hand[ctx.currentPlayer].splice(card_idx, 1)
+    UpdateScore(G, ctx);
+
+    if (G.hand[ctx.currentPlayer].length === 0) { EndTurn(G, ctx); }
 }
 
 function UpdateScore(G, ctx) {  // Not using anywhere yet. Not tested.
-    var score = G.length
+    var score = G.deck.length
     var  n;
     for (n=0; n < ctx.numPlayers; n++) {
         score += G.hand[n].length
     }
-    return score
+    G.score = score
 }
 
 export const TheDance = {
