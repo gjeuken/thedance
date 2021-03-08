@@ -97,4 +97,5 @@ button.pass {
 button.pass:hover {
 	background-color: green;
 	color: white;
+	border-radius: 25px;
 }

@@ -8,7 +8,7 @@ export class TheDanceBoard extends React.Component {
 	}
 
 	selectCard(id) {
-		this.played_card = this.props.G.hand[this.props.ctx.currentPlayer][id]
+		this.played_card = this.props.G.hand[this.props.playerID][id]
 	}
 	preventDefault = () => (event) => {
     	event.preventDefault();
@@ -38,10 +38,10 @@ export class TheDanceBoard extends React.Component {
 		board_table.push(<tr id='pilerack'>{piles}</tr>);
 
 		let player_hand = [];
-		for (let i = 0; i < this.props.G.hand[this.props.ctx.currentPlayer].length; i++) {
+		for (let i = 0; i < this.props.G.hand[this.props.playerID].length; i++) {
 			let cell = (
 				<td className='card hand' draggable key={i} onDragStart={() => this.selectCard(i)}>
-				{this.props.G.hand[this.props.ctx.currentPlayer][i]}
+				{this.props.G.hand[this.props.playerID][i]}
 				</td>
 			);
 			player_hand.push(<tc  key={i}>{cell}</tc>);
@@ -56,7 +56,7 @@ export class TheDanceBoard extends React.Component {
 					<tbody id='handrack'>{player_hand}</tbody>
 				</table>
 				<div id='pass_container'>
-					<button className='pass' onClick={this.props.moves.EndTurn}>pass</button>
+					<button className='pass' onClick={() => this.props.moves.EndTurn()}>pass</button>
 				</div>
 			</div>
 		);
