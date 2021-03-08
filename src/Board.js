@@ -17,35 +17,43 @@ export class TheDanceBoard extends React.Component {
 
 	render() {
 
+		let indicators = [];
+		indicators.push(<tc><td className='indicator'>&#9650;</td></tc>);
+		indicators.push(<tc><td className='indicator'>&#9650;</td></tc>);
+		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
+		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
+		
 		let piles = [];
 		for (let i = 0; i < 4; i++) {
-			let cells = [];
-			cells.push(
+			let cell = (
 				<td className='card pile' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
 				{this.props.G.piles[i]}
 				</td>
 			);
-			piles.push(<tc key={i}>{cells}</tc>);
+			piles.push(<tc key={i}>{cell}</tc>);
 		}
+
+		let board_table = [];
+		board_table.push(<tr id='indicators'>{indicators}</tr>);
+		board_table.push(<tr id='pilerack'>{piles}</tr>);
 
 		let player_hand = [];
 		for (let i = 0; i < this.props.G.hand[this.props.ctx.currentPlayer].length; i++) {
-			let cells = [];
-			cells.push(
+			let cell = (
 				<td className='card hand' draggable key={i} onDragStart={() => this.selectCard(i)}>
 				{this.props.G.hand[this.props.ctx.currentPlayer][i]}
 				</td>
 			);
-			player_hand.push(<tc  key={i}>{cells}</tc>);
+			player_hand.push(<tc  key={i}>{cell}</tc>);
 		}
 
 		return (
 			<div id='table'>
 				<table id="board">
-					<tbody className='pilerack'>{piles}</tbody>
+					<tbody>{board_table}</tbody>
 				</table>
 				<table id="player_hand">
-					<tbody className='handrack'>{player_hand}</tbody>
+					<tbody id='handrack'>{player_hand}</tbody>
 				</table>
 				<div id='pass_container'>
 					<button className='pass' onClick={this.props.moves.EndTurn}>pass</button>
