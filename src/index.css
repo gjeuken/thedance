@@ -11,3 +11,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#table{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 500px
+}
+
+.card {
+	border: 5px solid #555;
+	width: 80px;
+	height: 120px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 25px;
+	vertical-align: middle;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+#board {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#player_hand {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pilerack {
+	border-spacing: 20px;
+	padding-bottom: 50px;
+}
+
+.handrack {
+	border-spacing: 5px;
+	padding-bottom: 20px;
+}
+
+.pile {	
+	background-color: antiquewhite;
+}
+
+.hand {	
+	background-color: lavender;
+}
+
+#pass_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button.pass {
+	background-color: lightgreen;
+	border: 3px solid green;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	border-radius: 25px;
+}
+button.pass:hover {
+	background-color: green;
+	color: white;
+}

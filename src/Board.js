@@ -13,19 +13,11 @@ export class TheDanceBoard extends React.Component {
 
 	render() {
 
-		const cellStyle = {
-			border: '1px solid #555',
-			width: '50px',
-			height: '100px',
-			lineHeight: '50px',
-			textAlign: 'center',
-		};
-
 		let piles = [];
 		for (let i = 0; i < 4; i++) {
 			let cells = [];
 			cells.push(
-				<td style={cellStyle} key={i} onClick={() => this.selectPile(this.played_card,i)}>
+				<td className='card pile' key={i} onClick={() => this.selectPile(this.played_card,i)}>
 				{this.props.G.piles[i]}
 				</td>
 			);
@@ -36,26 +28,24 @@ export class TheDanceBoard extends React.Component {
 		for (let i = 0; i < this.props.G.hand[this.props.ctx.currentPlayer].length; i++) {
 			let cells = [];
 			cells.push(
-				<td style={cellStyle} key={i} onClick={() => this.selectCard(i)}>
+				<td className='card hand' key={i} onClick={() => this.selectCard(i)}>
 				{this.props.G.hand[this.props.ctx.currentPlayer][i]}
 				</td>
 			);
-			player_hand.push(<tc key={i}>{cells}</tc>);
+			player_hand.push(<tc  key={i}>{cells}</tc>);
 		}
 
 		return (
-			<div>
-			board
-			<table id="board">
-			<tbody>{piles}</tbody>
-			</table>
-			hand
-			<table id="player_hand">
-			<tbody>{player_hand}</tbody>
-			</table>
-			<button onClick={this.props.moves.EndTurn}>
-			pass
-			</button>
+			<div id='table'>
+				<table id="board">
+					<tbody className='pilerack'>{piles}</tbody>
+				</table>
+				<table id="player_hand">
+					<tbody className='handrack'>{player_hand}</tbody>
+				</table>
+				<div id='pass_container'>
+					<button className='pass' onClick={this.props.moves.EndTurn}>pass</button>
+				</div>
 			</div>
 		);
 	}
