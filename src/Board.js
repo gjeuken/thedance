@@ -10,6 +10,10 @@ export class TheDanceBoard extends React.Component {
 	selectCard(id) {
 		this.played_card = this.props.G.hand[this.props.ctx.currentPlayer][id]
 	}
+	preventDefault = () => (event) => {
+    	event.preventDefault();
+    	console.log("prevent default")
+ 	}
 
 	render() {
 
@@ -17,7 +21,7 @@ export class TheDanceBoard extends React.Component {
 		for (let i = 0; i < 4; i++) {
 			let cells = [];
 			cells.push(
-				<td className='card pile' key={i} onClick={() => this.selectPile(this.played_card,i)}>
+				<td className='card pile' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
 				{this.props.G.piles[i]}
 				</td>
 			);
@@ -28,7 +32,7 @@ export class TheDanceBoard extends React.Component {
 		for (let i = 0; i < this.props.G.hand[this.props.ctx.currentPlayer].length; i++) {
 			let cells = [];
 			cells.push(
-				<td className='card hand' key={i} onClick={() => this.selectCard(i)}>
+				<td className='card hand' draggable key={i} onDragStart={() => this.selectCard(i)}>
 				{this.props.G.hand[this.props.ctx.currentPlayer][i]}
 				</td>
 			);

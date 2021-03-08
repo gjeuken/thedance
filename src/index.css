@@ -29,7 +29,7 @@ code {
 	border-radius: 25px;
 	vertical-align: middle;
 	font-size: 30px;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 #board {
@@ -60,6 +60,7 @@ code {
 
 .hand {	
 	background-color: lavender;
+	cursor: grab;
 }
 
 #pass_container {
