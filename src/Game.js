@@ -62,6 +62,10 @@ function UpdateScore(G, ctx) {
 }
 
 export const TheDance = {
+	name: 'TheDance',
+	minPlayers: 1,
+	maxPlayers: 5,
+
 	setup: ctx => {
 		let deck = CreateDeck(2,99);
 		let hand_size = NumberOfCards(ctx.numPlayers)
@@ -75,8 +79,6 @@ export const TheDance = {
 		hand_size: hand_size,
 		hand: hand,
 		score: 98,
-		minPlayers: 1,
-		maxPlayers: 5,
 		disableUndo: true,})
 	},
 
