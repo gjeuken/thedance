@@ -7,7 +7,7 @@ import { SocketIO } from 'boardgame.io/multiplayer';
 const TheDanceClient = Client({
 	game: TheDance,
 	board: TheDanceBoard,
-	multiplayer: SocketIO({ server: 'localhost:8000' }),
+	multiplayer: SocketIO({ server: `https://${window.location.hostname}` }),
 });
 /*
 const App = () => (

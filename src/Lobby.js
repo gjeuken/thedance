@@ -3,12 +3,14 @@ import { TheDance } from "./Game"
 import { TheDanceBoard } from "./Board"
 import { Lobby } from 'boardgame.io/react';
 
+const server = `https://${window.location.hostname}`
+
 export class TheDanceLobby extends React.Component {
 	render() {
 		return(
 			<Lobby
-			gameServer={`https://${window.location.hostname}:8000`}
-			lobbyServer={`https://${window.location.hostname}:8000`}
+			gameServer={server}
+			lobbyServer={server}
 			gameComponents={[ 
 				{ game: TheDance, board: TheDanceBoard }
 			]}
