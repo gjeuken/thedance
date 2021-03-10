@@ -1,24 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import TheDanceClient from './App';
-import reportWebVitals from './reportWebVitals';
-
-/*ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);*/
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-//reportWebVitals();
-
 import { render } from 'react-dom';
-import { TheDance } from "./Game"
-import { TheDanceBoard } from "./Board"
-import { TheDanceLobby } from './Lobby';
 
-render(<TheDanceLobby />, document.getElementById("root"));
+import './index.css';
+
+import { TheDanceLobby } from './Lobby';
+import { SimpleLobby } from './Lobby_Simplest';
+
+const isSimpleLobby = true;     // If true, uses the simple lobby. Otherwise, uses the Boardgame.io lobby.
+
+if (isSimpleLobby) { render(<SimpleLobby />, document.getElementById("root")); }
+else { render(<TheDanceLobby />, document.getElementById("root")); }
