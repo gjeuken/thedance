@@ -68,7 +68,7 @@ export class TheDanceBoard extends React.Component {
 		return (
 		    <div id='main_window'>
                 <div id='sidebar' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
-                    <table><tbody><td className='card score' key="5"> Score: {this.props.G.score} </td></tbody></table>
+                    <table><tbody><td className='card score' key="score"> Score: {this.props.G.score} </td></tbody></table>
                     <table id="player-table">
                         <tbody>{player_names}</tbody>
                     </table>
