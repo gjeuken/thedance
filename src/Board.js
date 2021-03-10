@@ -17,7 +17,7 @@ export class TheDanceBoard extends React.Component {
 
 	render() {
 
-		let isCurrentPlayer = this.props.ctx.currentPlayer === this.props.ctx.playerID;
+		let isCurrentPlayer = this.props.ctx.currentPlayer === this.props.playerID;
 
 		let indicators = [];
 		indicators.push(<tc><td className='indicator'>&#9650;</td></tc>);
