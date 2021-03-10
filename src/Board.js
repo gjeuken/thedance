@@ -35,6 +35,13 @@ export class TheDanceBoard extends React.Component {
 			piles.push(<tc key={i}>{cell}</tc>);
 		}
 
+		if (this.props.G.deck.length > 0) {
+		    //let deck = (<td className='card pile' key="5"> {this.props.G.deck.length} </td>);
+            let deck = (<td className='card full-deck' key="5"> &nbsp; </td>);
+            piles.push(<tc key="5">{deck}</tc>)
+            indicators.push(<tc><td className='indicator'>{this.props.G.deck.length}</td></tc>);
+		}
+
 		let board_table = [];
 		board_table.push(<tr id='indicators'>{indicators}</tr>);
 		board_table.push(<tr id='pilerack'>{piles}</tr>);
@@ -49,17 +56,34 @@ export class TheDanceBoard extends React.Component {
 			player_hand.push(<tc  key={i}>{cell}</tc>);
 		}
 
+		let player_names = [];
+		for (let i = 0; i < this.props.ctx.numPlayers; i++) {
+		    if (i === parseInt(this.props.ctx.currentPlayer, 10)) {
+		        player_names.push(<tr className='active-player'>{i}</tr>);      // TODO Retrieve player names, instead of ids (i)
+		    } else {
+		        player_names.push(<tr className='inactive-player'>{i}</tr>);    // TODO Retrieve player names, instead of ids (i)
+		    }
+		}
+
 		return (
-			<div id='table' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
-				<table id="board">
-					<tbody>{board_table}</tbody>
-				</table>
-				<table id="player_hand">
-					<tbody id='handrack'>{player_hand}</tbody>
-				</table>
-				<div id='pass_container'>
-					<button className='pass' onClick={() => this.props.moves.EndTurn()}>pass</button>
-				</div>
+		    <div id='main_window'>
+                <div id='sidebar' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                    <table><tbody><td className='card score' key="5"> Score: {this.props.G.score} </td></tbody></table>
+                    <table id="player-table">
+                        <tbody>{player_names}</tbody>
+                    </table>
+                </div>
+                <div id='table' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                    <table id="board">
+                        <tbody>{board_table}</tbody>
+                    </table>
+                    <table id="player_hand">
+                        <tbody id='handrack'>{player_hand}</tbody>
+                    </table>
+                    <div id='pass_container'>
+                        <button className='pass' onClick={() => this.props.moves.EndTurn()}>pass</button>
+                    </div>
+                </div>
 			</div>
 		);
 	}

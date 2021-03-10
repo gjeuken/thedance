@@ -20,11 +20,36 @@ code {
 }
 
 #table{
-	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	min-height: 500px
+}
+
+#main_window{
+	display: flex;
+	min-height: 500px
+}
+
+#sidebar{
+	width: fit-content;
+	align-items: center;
+	justify-content: center;
+}
+
+.active-player {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.inactive-player {
+  text-decoration: none;
+}
+
+#player-table {
+	padding: 20px;
+	font-size: 30px;
 }
 
 #indicators {
@@ -36,7 +61,7 @@ code {
 	text-align: center;
 	vertical-align: bottom;
 	font-size: 32px;
-	color: brown;
+	color: indianred;
 }
 
 .card {
@@ -80,6 +105,17 @@ code {
 .hand {	
 	background-color: lavender;
 	cursor: grab;
+}
+
+.score {
+    background-color: mediumaquamarine;
+    width: 150px;
+	height: 50px;
+	border: 5px solid #555;
+}
+
+.full-deck {
+	background-color: lightslategray;
 }
 
 #pass_container {
