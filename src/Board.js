@@ -1,6 +1,7 @@
 import React from 'react';
 
 export class TheDanceBoard extends React.Component {
+	isCurrentPlayer = this.props.ctx.currentPlayer === this.props.ctx.playerID;
 
 	selectPile(card,pile) {
 		this.props.moves.PlayCard(card,pile)
@@ -48,7 +49,7 @@ export class TheDanceBoard extends React.Component {
 		}
 
 		return (
-			<div id='table'>
+			<div id='table' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
 				<table id="board">
 					<tbody>{board_table}</tbody>
 				</table>
