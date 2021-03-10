@@ -1,7 +1,6 @@
 import React from 'react';
 
 export class TheDanceBoard extends React.Component {
-	isCurrentPlayer = this.props.ctx.currentPlayer === this.props.ctx.playerID;
 
 	selectPile(card,pile) {
 		this.props.moves.PlayCard(card,pile)
@@ -17,6 +16,8 @@ export class TheDanceBoard extends React.Component {
  	}
 
 	render() {
+
+		let isCurrentPlayer = this.props.ctx.currentPlayer === this.props.ctx.playerID;
 
 		let indicators = [];
 		indicators.push(<tc><td className='indicator'>&#9650;</td></tc>);
