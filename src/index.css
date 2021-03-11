@@ -100,11 +100,11 @@ code {
 }
 
 .pile {	
-	background-color: antiquewhite;
+	background-color: rgb(255, 241, 230);
 }
 
 .hand {	
-	background-color: lavender;
+	background-color: rgb(222, 226, 255);
 	cursor: grab;
 }
 
@@ -130,7 +130,7 @@ code {
 }
 
 .full-deck {
-	background-color: lightslategray;
+	background-color: rgb(142, 154, 175);
 }
 
 #pass_container {
@@ -154,7 +154,7 @@ button.pass {
 }
 
 button.pass:hover {
-	background-color: green;
+	background-color: forestgreen;
 	color: white;
 	border-radius: 25px;
 }
