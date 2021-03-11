@@ -63,6 +63,10 @@ function UpdateScore(G, ctx) {
     G.score = score
 }
 
+function ResetLastPlayedPile(G) {
+	G.last_played_pile = null
+}
+
 export const TheDance = {
 	name: 'TheDance',
 	minPlayers: 1,
@@ -86,13 +90,13 @@ export const TheDance = {
 	},
 
 	phases: {
-	    start_phase: {
-	        moves: {PlayCard, EndTurn},
+		start_phase: {
+			moves: {PlayCard, EndTurn, ResetLastPlayedPile},
 	        next: 'main_phase',
 	        start: true,
 	    },
-	    main_phase: {
-	        moves: {PlayCard, EndTurn},
+		main_phase: {
+			moves: {PlayCard, EndTurn, ResetLastPlayedPile},
 	        endIf: G => (G.deck.length === 0),
 	        next: 'end_phase',
 	    },

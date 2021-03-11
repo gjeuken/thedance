@@ -107,6 +107,20 @@ code {
 	cursor: grab;
 }
 
+.last_played {
+	animation: pulse-animation 1s infinite;
+	animation-iteration-count: 1;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
 .score {
     background-color: mediumaquamarine;
     width: 150px;

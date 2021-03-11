@@ -8,6 +8,7 @@ export class TheDanceBoard extends React.Component {
 	}
 
 	selectCard(id) {
+		this.props.moves.ResetLastPlayedPile()
 		this.played_card = this.props.G.hand[this.props.playerID][id]
 	}
 	preventDefault = () => (event) => {
@@ -24,14 +25,23 @@ export class TheDanceBoard extends React.Component {
 		indicators.push(<tc><td className='indicator'>&#9650;</td></tc>);
 		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
 		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
-		
+
 		let piles = [];
 		for (let i = 0; i < 4; i++) {
-			let cell = (
-				<td className='card pile' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
-				{this.props.G.piles[i]}
-				</td>
-			);
+			let cell = []
+			if (this.props.G.last_played_pile === i) {
+				cell = (
+					<td className='card pile last_played' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
+					{this.props.G.piles[i]}
+					</td>
+				);
+			} else {
+				cell = (
+					<td className='card pile' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
+					{this.props.G.piles[i]}
+					</td>
+				);
+			};
 			piles.push(<tc key={i}>{cell}</tc>);
 		}
 
