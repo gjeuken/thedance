@@ -77,14 +77,14 @@ export class Board extends React.Component {
 		}
 
 		return (
-		    <div id='main_window'>
-                <div id='sidebar' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+		    <div id='main_window' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                <div id='sidebar'>
                     <table><tbody><td className='card score' key="score"> Score: {this.props.G.score} </td></tbody></table>
                     <table id="player-table">
                         <tbody>{player_names}</tbody>
                     </table>
                 </div>
-                <div id='table' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                <div id='table'>
                     <table id="board">
                         <tbody>{board_table}</tbody>
                     </table>
