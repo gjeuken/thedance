@@ -6,6 +6,7 @@ import { Home, Room } from "./pages";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "./index.css";
 // import "./index.scss";
+import "./index_new.css";
 
 const App = () => {
   const history = useHistory(); // remember the history of user navigation
