@@ -1,12 +1,34 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
+import { Home, Room } from "./pages";
 
-import './index.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "./index.scss";
 
-import { TheDanceLobby } from './Lobby';
-import { SimpleLobby } from './Lobby_Simplest';
+const App = () => {
+  const history = useHistory(); // remember the history of user navigation
 
-const isSimpleLobby = false;     // If true, uses the simple lobby. Otherwise, uses the Boardgame.io lobby.
+  // defining the routing: (so far) homepage, lobby/room page. else redirect to home page for simplicity
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home history={history} />
+      </Route>
+      <Route exact path="/rooms/:id">
+        <Room history={history} />
+      </Route>
+      <Redirect to="/" />
+    </Switch>
+  );
+};
 
-if (isSimpleLobby) { render(<SimpleLobby />, document.getElementById("root")); }
-else { render(<TheDanceLobby />, document.getElementById("root")); }
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

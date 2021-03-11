@@ -1,0 +1,12 @@
+@import "./styles.scss";
+
+button {
+  @extend .no-outline;
+  @extend .unselectable;
+}
+
+* {
+  &::selection {
+    background: #cccccc;
+  }
+}

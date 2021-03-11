@@ -1,0 +1,57 @@
+.lobby-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.game-title {
+  width: 100%;
+  font-size: 7.5vh;
+  margin-bottom: -1.5vh;
+}
+
+.game-info {
+  font-size: 2vh;
+  position: absolute;
+  bottom: 2vh;
+  white-space: pre-wrap;
+  line-height: 1.3;
+  & a {
+    color: #3b6aa0;
+    &:hover {
+      color: #3b6aa0;
+    }
+  }
+}
+
+.title {
+  margin-top: 1.75vh;
+  margin-bottom: -0.5vh;
+  font-size: 4.5vh;
+  display: inline-block;
+  position: relative;
+}
+
+.title:before,
+.title:after {
+  content: "";
+  position: absolute;
+  height: 0.8vh;
+  border-bottom: 0.275vh solid;
+  border-top: 0.275vh solid;
+  top: 3.25vh;
+}
+
+.title:before {
+  right: 100%;
+  margin-right: 3%;
+}
+
+.title:after {
+  left: 100%;
+  margin-left: 3%;
+}

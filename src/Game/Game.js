@@ -67,8 +67,8 @@ function ResetLastPlayedPile(G) {
 	G.last_played_pile = null
 }
 
-export const TheDance = {
-	name: 'TheDance',
+export const Game = {
+	name: 'Game',
 	minPlayers: 1,
 	maxPlayers: 5,
 
