@@ -22,6 +22,7 @@ function EndTurn(G, ctx) {
     }
 
     DrawCard(G, ctx);
+    G.last_played_pile = null;
 
     if (ctx.phase === "start_phase" && ctx.numMoves >= 2) { ctx.events.endPhase(); }
     else { ctx.events.endTurn(); }
@@ -48,6 +49,7 @@ function PlayCard(G, ctx, card, pile_id) {
     G.piles[pile_id] = card;
     G.hand[ctx.currentPlayer].splice(card_idx, 1)
     UpdateScore(G, ctx);
+    G.last_played_pile = pile_id;
 
     if (G.hand[ctx.currentPlayer].length === 0) { EndTurn(G, ctx); }
 }
@@ -78,6 +80,7 @@ export const TheDance = {
 		deck: deck,
 		hand_size: hand_size,
 		hand: hand,
+		last_played_pile: null,
 		score: 98,
 		disableUndo: true,})
 	},
