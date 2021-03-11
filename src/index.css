@@ -50,6 +50,7 @@ code {
 #player-table {
 	padding: 20px;
 	font-size: 30px;
+	.right {text-align:right; background:#333;}
 }
 
 #indicators {
