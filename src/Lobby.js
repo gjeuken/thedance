@@ -1,20 +1,19 @@
 import React from 'react';
-import { TheDance } from "./Game"
-import { TheDanceBoard } from "./Board"
-import { Lobby } from 'boardgame.io/react';
+import TheDanceClient from './App';
 
-const server = `https://${window.location.hostname}`
+export class SimpleLobby extends React.Component {
+  state = { playerID: null };
 
-export class TheDanceLobby extends React.Component {
-	render() {
-		return(
-			<Lobby
-			gameServer={server}
-			lobbyServer={server}
-			gameComponents={[ 
-				{ game: TheDance, board: TheDanceBoard }
-			]}
-			/>)
-	}
+  render() {
+    if (this.state.playerID === null) {
+      return (
+        <div>
+          <p>Play as</p>
+          <button onClick={() => this.setState({ playerID: "0" })}> Player 0 </button>
+          <button onClick={() => this.setState({ playerID: "1" })}> Player 1 </button>
+        </div>
+      );
+    }
+    return ( <div> <TheDanceClient playerID={this.state.playerID} /> </div> );
+  }
 }
-
