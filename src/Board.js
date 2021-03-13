@@ -66,19 +66,19 @@ export class TheDanceBoard extends React.Component {
 			player_hand.push(<tc  key={i}>{cell}</tc>);
 		}
 
-		let player_names = []; // TODO Change this variable name. Maybe player_info?
+		let player_names = [];
 		for (let i = 0; i < this.props.ctx.numPlayers; i++) {
 		    if (i === parseInt(this.props.ctx.currentPlayer, 10)) {
-		        player_names.push(<tr><td className='active-player'>{i}</td> <td className='right'>:{this.props.G.hand[i].length} cards</td></tr>);      // TODO Retrieve player names, instead of ids (i)
+		        player_names.push(<tr className='active-player'>Player {i}</tr>);      // TODO Retrieve player names, instead of ids (i)
 		    } else {
-		        player_names.push(<tr><td className='inactive-player'>{i}</td> <td>:{this.props.G.hand[i].length} cards</td></tr>);    // TODO Retrieve player names, instead of ids (i)
+		        player_names.push(<tr className='inactive-player'>Player {i}</tr>);    // TODO Retrieve player names, instead of ids (i)
 		    }
 		}
 
 		return (
 		    <div id='main_window'>
                 <div id='sidebar' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
-                    <table><tbody><td className='card score' key="score"> Score: {this.props.G.score} </td></tbody></table>
+                    <table><tbody><td className='score-circle' key="score"> {this.props.G.score} pts </td></tbody></table>
                     <table id="player-table">
                         <tbody>{player_names}</tbody>
                     </table>
