@@ -9,8 +9,10 @@
     "boardgame.io": "^0.43.3",
     "esm": "^3.2.25",
     "koa-static": "^5.0.0",
+    "ky": "^0.27.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },

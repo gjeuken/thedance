@@ -69,9 +69,9 @@ export class TheDanceBoard extends React.Component {
 		let player_names = [];
 		for (let i = 0; i < this.props.ctx.numPlayers; i++) {
 		    if (i === parseInt(this.props.ctx.currentPlayer, 10)) {
-		        player_names.push(<tr className='active-player'>Player {i}</tr>);      // TODO Retrieve player names, instead of ids (i)
+		        player_names.push(<tr className='active-player'>{this.props.matchData[i].name}</tr>);      // TODO Retrieve player names, instead of ids (i)
 		    } else {
-		        player_names.push(<tr className='inactive-player'>Player {i}</tr>);    // TODO Retrieve player names, instead of ids (i)
+		        player_names.push(<tr className='inactive-player'>{this.props.matchData[i].name}</tr>);    // TODO Retrieve player names, instead of ids (i)
 		    }
 		}
 

@@ -1,13 +1,22 @@
-import { TheDance } from './Game';
-import { TheDanceBoard } from './Board';
-import { Client } from 'boardgame.io/react';
-import { SocketIO } from 'boardgame.io/multiplayer';
+import React from 'react'
+import { Lobby } from './pages/Lobby'
+import { Room } from './pages/Room'
+import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from "react-router-dom";
 
-const TheDanceClient = Client({
-	game: TheDance,
-	board: TheDanceBoard,
-	//multiplayer: SocketIO({ server: `https://${window.location.hostname}` }),     // TODO for online use
-	multiplayer: SocketIO({ server: 'localhost:8000' }),                            // TODO for local use
-});
+const App = () => {
+  const history = useHistory(); // remember the history of user navigation
 
-export default TheDanceClient;
+  // defining the routing: (so far) homepage, lobby/room page. else redirect to home page for simplicity
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Lobby history={history} />
+      </Route>
+      <Route exact path="/rooms/:id">
+        <Room history={history} />
+      </Route>
+    </Switch>
+  );
+};
+
+export default App;
