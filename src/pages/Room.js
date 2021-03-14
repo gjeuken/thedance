@@ -19,6 +19,26 @@ const GameClient = Client({
 	multiplayer: SocketIO({ server: GAME_SERVER_URL }),
 });
 
+const copyRoomToClipboard = (id) => {
+	const text = window.location.origin + '/?joinRoom=' + id;
+	// Create new element
+	var el = document.createElement('textarea');
+	// Set value (string to be copied)
+	el.value = text;
+	// Set non-editable to avoid focus and move outside of view
+	el.setAttribute('readonly', '');
+	el.style = {position: 'absolute', left: '-9999px'};
+	document.body.appendChild(el);
+	// Select text inside element
+	el.select();
+	// Copy text to clipboard
+	document.execCommand('copy');
+	// Remove temporary element
+	document.body.removeChild(el);
+};
+
+
+
 export const Room = (props) => {
 
 	const { history } = props;
@@ -49,24 +69,6 @@ export const Room = (props) => {
 			clearInterval(interval);
 		};
 	}, [show, players.length, id, history]);
-
-	const copyRoomToClipboard = () => {
-		const text = window.location.origin + '/?joinRoom=' + id;
-		// Create new element
-		var el = document.createElement('textarea');
-		// Set value (string to be copied)
-		el.value = text;
-		// Set non-editable to avoid focus and move outside of view
-		el.setAttribute('readonly', '');
-		el.style = {position: 'absolute', left: '-9999px'};
-		document.body.appendChild(el);
-		// Select text inside element
-		el.select();
-		// Copy text to clipboard
-		document.execCommand('copy');
-		// Remove temporary element
-		document.body.removeChild(el);
-	};
 
 	const leaveRoom = () => {
 		api.leaveRoom(id, localStorage.getItem("id"), localStorage.getItem("credentials")).then(() => {
@@ -118,7 +120,7 @@ export const Room = (props) => {
 
 			<div className="roomID-area">
 			Room id: <b>{id}</b>
-			<button className = 'copy-btn' onClick = {copyRoomToClipboard()}>Copy</button>
+			<button className = 'copy-btn' onClick = {() => copyRoomToClipboard(id)}>Copy</button>
 			</div>
 
 			<p />
