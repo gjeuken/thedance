@@ -76,14 +76,14 @@ export class TheDanceBoard extends React.Component {
 		}
 
 		return (
-		    <div id='main_window'>
-                <div id='sidebar' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+		    <div id='main_window' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                <div id='sidebar'>
                     <table><tbody><td className='score-circle' key="score"> {this.props.G.score} pts </td></tbody></table>
                     <table id="player-table">
                         <tbody>{player_names}</tbody>
                     </table>
                 </div>
-                <div id='table' className={isCurrentPlayer ? 'active-back' : 'inactive-back'}>
+                <div id='table'>
                     <table id="board">
                         <tbody>{board_table}</tbody>
                     </table>
