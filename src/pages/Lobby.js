@@ -108,18 +108,6 @@ export const Lobby = (props) => {
 
 		<span className = 'semi_title'>Join room</span>
 
-		<p>Room ID:</p>
-		<input
-		id="roomIdentification"
-		type="text"
-		defaultValue = {room}
-		spellCheck="false"
-		autoComplete="off"
-		onKeyDown={(e) => handleKeyDown(e)}
-		onChange={(e) => setRoom(e.target.value)}
-		className="input-field"
-		/>
-
 		<p>Your name:</p>
 		<input
 		id="joinName"
@@ -133,6 +121,18 @@ export const Lobby = (props) => {
 		className="input-field"
 		/>
 
+		<p>Room ID:</p>
+		<input
+		id="roomIdentification"
+		type="text"
+		defaultValue = {room}
+		spellCheck="false"
+		autoComplete="off"
+		onKeyDown={(e) => handleKeyDown(e)}
+		onChange={(e) => setRoom(e.target.value)}
+		className="input-field"
+		/>
+	
 		<p />
 
 		<button
@@ -149,17 +149,6 @@ export const Lobby = (props) => {
 
 		<span className='semi_title'>Create room</span>
 
-		<p>Players: {num}</p>
-		<input
-		type="range"
-		min = {`${MIN_PLAYERS}`}
-		max = {`${MAX_PLAYERS}`}
-		value={num}
-		autoComplete="off"
-		onChange={(e) => setNum(e.target.value)}
-		className="input-slider"
-		/>
-
 		<p>Your name:</p>
 		<input
 		id="createName"
@@ -171,6 +160,17 @@ export const Lobby = (props) => {
 		onChange={(e) => setCName(e.target.value)}
 		onPaste={(e) => e.preventDefault()}
 		className="input-field"
+		/>
+
+		<p>Players: {num}</p>
+		<input
+		type="range"
+		min = {`${MIN_PLAYERS}`}
+		max = {`${MAX_PLAYERS}`}
+		value={num}
+		autoComplete="off"
+		onChange={(e) => setNum(e.target.value)}
+		className="input-slider"
 		/>
 
 		<p />
