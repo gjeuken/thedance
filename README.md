@@ -33,14 +33,14 @@ _Make sure to use incognito mode to create the second player._
 
 ## How to Play
 
-The Dance is a collaborative card game, played with 2 to 5 players. 
+The Dance is a **collaborative** card game, played with 2 to 5 players. 
 
 The goal is to obtain as small points as possible. The game starts with 98 points and the best score is 0 point. 
 
 First, let's define the **active** and **inactive** players. 
 In a turn, a single player is active and the rest of the players are inactive. 
 In the below image, we showed the active player's board on the left and inactive player's board on the right. 
-The <u>**active player**</u>'s name is written in bold and underlined. The active player's board has light colored background. 
+The active player's name is written in bold and underlined. The active player's board has light colored background. 
 
 <p align="center"><img src="https://github.com/gjeuken/thedance/blob/master/images/initial-active.png" width="350"/> 
 &nbsp;&nbsp; <img src="https://github.com/gjeuken/thedance/blob/master/images/initial-inactive.png" width="350"/></p> 
@@ -56,7 +56,7 @@ The players before the starting player should pass their rounds without playing 
 
 The active player must play **at least 2** cards to the piles. 
 A card can be played on a pile if it respects the corresponding ascending or descending order. 
-There is one **exception** to this situation; if a card is **exactly** 10 values away from the number on the pile, 
+There is one **exception** to this situation; if a card is **exactly 10** values away from the number on the pile, 
 it can be played regardless of the order. 
 
 An example is shown below. The active player can play cards 73, 76, 79, 85 or 87 to the first pile by respecting the ascending order.
