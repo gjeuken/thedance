@@ -27,7 +27,7 @@ npm start
 
 After above steps, the game lobby will be available at _localhost:3000_. 
 
-Make sure to use incognito mode to create the second player. 
+_Make sure to use incognito mode to create the second player._ 
 
 <p align="center"><img width=300 src="https://github.com/gjeuken/thedance/blob/master/images/lobby.png"></p>
 
@@ -54,7 +54,7 @@ The red arrows above each pile show whether that pile is in ascending (&#9650;) 
 At the beginning of the game, all players check their hands and decide who should be the starting player. 
 The players before the starting player should pass their rounds without playing any card. 
 
-The active player must play _at least 2_ cards to the piles. 
+The active player must play **at least 2** cards to the piles. 
 A card can be played on a pile if it respects the corresponding ascending or descending order. 
 There is one **exception** to this situation; if a card is **exactly** 10 values away from the number on the pile, 
 it can be played regardless of the order. 
@@ -68,15 +68,15 @@ Similarly, the active player can play 73 to the last pile.
 After the active player plays at least 2 cards, they pass the turn and draw cards from the deck until they reach the hand limit. 
 
 Once there are no cards in the deck, the game enters the **final phase**. 
-In the final phase, the active player must play _at least one_ card. 
+In the final phase, the active player must play **at least one** card. 
 If a player has no card in their hand, they are out of the game. 
 The rest of the players keep playing until a player fails to add a card to one of the piles. 
 
-The _final score_ is the total number of cards which are not in play (the cards still in the players' hands and the cards in the deck). 
+The **final score** is the total number of cards which are not in play (the cards still in the players' hands and the cards in the deck). 
 
 The Dance is enjoyable with the discussions within the group. 
 The players should discuss their hands and try to agree on what should be played without seeing each others' hands. 
 A player can say they "_have a good card to play in third pile_", but cannot say exactly which card they are planning to play. 
 No card numbers should be discussed.
 
-<center> Enjoy the game! :) </center>
+Enjoy the game! :)
