@@ -50,6 +50,7 @@ function PlayCard(G, ctx, card, pile_id) {
     G.hand[ctx.currentPlayer].splice(card_idx, 1)
     UpdateScore(G, ctx);
     G.last_played_pile = pile_id;
+    ResetLastPlayedPile(G);
 
     if (G.hand[ctx.currentPlayer].length === 0) { EndTurn(G, ctx); }
 }
@@ -91,12 +92,12 @@ export const TheDance = {
 
 	phases: {
 		start_phase: {
-			moves: {PlayCard, EndTurn, ResetLastPlayedPile},
+			moves: {PlayCard, EndTurn},
 	        next: 'main_phase',
 	        start: true,
 	    },
 		main_phase: {
-			moves: {PlayCard, EndTurn, ResetLastPlayedPile},
+			moves: {PlayCard, EndTurn},
 	        endIf: G => (G.deck.length === 0),
 	        next: 'end_phase',
 	    },

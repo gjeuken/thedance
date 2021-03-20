@@ -8,7 +8,6 @@ export class TheDanceBoard extends React.Component {
 	}
 
 	selectCard(id) {
-		this.props.moves.ResetLastPlayedPile()
 		this.played_card = this.props.G.hand[this.props.playerID][id]
 	}
 	preventDefault = () => (event) => {
