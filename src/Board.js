@@ -81,6 +81,9 @@ export class TheDanceBoard extends React.Component {
                     <table id="player-table">
                         <tbody>{player_names}</tbody>
                     </table>
+                    <div id='rules_container'>
+                        <a href="https://github.com/gjeuken/thedance#how-to-play" target="_blank"><button className='rules' >How to Play</button></a>
+                    </div>
                 </div>
                 <div id='table'>
                     <table id="board">
