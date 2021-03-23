@@ -50,7 +50,6 @@ function PlayCard(G, ctx, card, pile_id) {
     G.hand[ctx.currentPlayer].splice(card_idx, 1)
     UpdateScore(G, ctx);
     G.last_played_pile = pile_id;
-    ResetLastPlayedPile(G);
 
     if (G.hand[ctx.currentPlayer].length === 0) { EndTurn(G, ctx); }
 }

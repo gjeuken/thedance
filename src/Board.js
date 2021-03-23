@@ -25,12 +25,17 @@ export class TheDanceBoard extends React.Component {
 		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
 		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
 
+		let counter = 0;
+		if (this.props.ctx.numMoves !== 0) { 
+			counter = 1 + (this.props.ctx.numMoves % 2) 
+		}
+
 		let piles = [];
 		for (let i = 0; i < 4; i++) {
 			let cell = []
 			if (this.props.G.last_played_pile === i) {
 				cell = (
-					<td className='card pile last_played' key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
+					<td className={'card pile last_played' + counter} key={i} onDragOver={this.preventDefault()} onDrop={() => this.selectPile(this.played_card,i)}>
 					{this.props.G.piles[i]}
 					</td>
 				);
