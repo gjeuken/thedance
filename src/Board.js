@@ -26,7 +26,7 @@ export class TheDanceBoard extends React.Component {
 		indicators.push(<tc><td className='indicator'>&#9660;</td></tc>);
 
 		let counter = 0;
-		if (this.props.ctx.numMoves !== 0) { 
+		if (this.props.ctx.numMoves > 1) { 
 			counter = 1 + (this.props.ctx.numMoves % 2) 
 		}
 
