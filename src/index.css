@@ -8,11 +8,11 @@ body {
 }
 
 .active-back {
-  background-color: mintcream;
+  background-color: darkseagreen;
 }
 
 .inactive-back {
-  background-color: mistyrose;
+  background-color: lightblue;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
